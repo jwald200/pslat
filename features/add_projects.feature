@@ -9,13 +9,13 @@ Feature: Add Project
     When I fill in "Title" with "Sample Project"
     And I fill in "Description" with "This will be an amazing project"
     And I click "Save Project"
-    Then I should see "Sample Project"
+    Then I should see a notification that the project was created successfully.
+    And I should see "Sample Project"
     And I should see "This will be an amazing project"
 
-  Scenario: Add a Project and the tile exists (Sad path)
+  Scenario: Add a Project and a project with the same title exists (Sad path)
     Given I have the following projects:
       | title         |
-      | logo for apple|
       | todo app      |
     When I add a project with a title of "todo app"
     Then I should see "todo app already exists!"
